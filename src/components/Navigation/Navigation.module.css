@@ -1,0 +1,25 @@
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    background-color: #333;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a.active {
+    background-color: #4caf50;
+    color: white;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
