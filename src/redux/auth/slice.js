@@ -4,33 +4,34 @@ import { register, login, logout, refreshUser } from "./operations";
 const authSlice = createSlice({
   name: "auth",
   initialState: {
-    user: null,
+    user: { name: null, email: null },
     token: null,
-    error: null,
-    loading: false,
+    isLoggedIn: false,
+    isRefreshing: false,
   },
-  reducers: {},
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.loading = false;
+        state.isLoggedIn = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
-        state.loading = false;
+        state.isLoggedIn = true;
       })
       .addCase(logout.fulfilled, state => {
-        state.user = null;
+        state.user = { name: "", email: "" };
         state.token = null;
+        state.isLoggedIn = false;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
-        state.user = action.payload;
+        state.user = action.payload.user;
+        state.isLoggedIn = true;
       });
   },
 });
 
-export default authSlice.reducer;
-export const { setError, clearError } = authSlice.actions;
+export const authReducer = authSlice.reducer;
+export default authReducer;
