@@ -5,6 +5,10 @@
     justify-content: center;
 }
 
+.header a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 .navLink {
     color: white;
     text-decoration: none;
@@ -15,9 +19,9 @@
 }
 
 .navLink.active {
-    background-color: #4caf50;
+    background-color: #2218e8;
 }
 
 .navLink:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(14, 120, 21, 0.2);
 }
